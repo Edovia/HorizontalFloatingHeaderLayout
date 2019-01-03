@@ -170,6 +170,10 @@ public class HorizontalFloatingHeaderLayout: UICollectionViewLayout {
         }
         //
         let lastSection = collectionView.numberOfSections - 1
+        
+        guard lastSection >= 0 else {
+            return .zero
+        }
         let contentWidth = lastItemMaxX() + inset(ForSection: lastSection).right
         let contentHeight = collectionView.bounds.height - collectionView.contentInset.top - collectionView.contentInset.bottom
         return CGSize(width:contentWidth, height:contentHeight)
